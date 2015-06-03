@@ -1,6 +1,6 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="ir.atriatech.pooshakkhanevade" version="1.0.0">
-  <name>پوشاک خانواده</name>
-  <description>Shopping</description>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="ir.atriatech.HiDoctor" version="1.0.0">
+  <name>HiDoctor</name>
+  <description>Medical</description>
   <author href="http://atriatech.ir" email="info@atriatech.ir">ATRIATECH</author>
  <content src="index.html"/>
   <preference name="permissions" value="none"/>
