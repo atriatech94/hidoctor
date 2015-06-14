@@ -16,6 +16,11 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+ 
+ window.addEventListener('load', function() {
+    new FastClick(document.body);
+}, false);
+
 document.addEventListener("backbutton",amintest, false);
 
 function amintest(){
