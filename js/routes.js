@@ -5,7 +5,7 @@ angular.module('pooshak')
             controller: 'IndexController',
         })
         .when('/post', {
-            templateUrl: 'pages/posts/index.html',
+            templateUrl: 'pages/posts/index-2.html',
             controller: 'PostController',
         })
         .when('/post_detail', {

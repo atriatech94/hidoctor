@@ -1,0 +1,50 @@
+.categories{
+    direction: rtl;
+    width: 90%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+.module{
+    width: 30%;
+    height:  9.375em;
+    overflow-y: hidden;
+    margin: 2.5% 2.5% 0 0 ;
+    position: relative;
+    overflow-x: hidden;
+    vertical-align: top;
+    display: inline-block;
+}
+/*--=============--   --===================--*/
+@media only screen and (min-width : 481px) and (max-width :768px) {
+    .product_one .detail .product_cust , .product_one .detail .product_time{
+        font-size: 11px;
+    }
+    .product_one .detail .product_name {
+        font-size: 13px;
+    }
+    .module{
+        width: 45%;
+        margin: 2.5% 2.5% 0 0 ;        
+    }
+     .categories{
+        width: 98%;
+    }
+/*--=============--   --===================--*/
+}
+
+@media only screen and (max-width :480px) {
+    .module{
+        height: 8em;
+        width: 100%;
+        margin:5% 0 0 0 ;
+    }
+    .module p{
+        font-size: 22px;
+    }
+    .categories{
+        width: 99%;
+    }
+     
+/*--=============--   --===================--*/
+}
+

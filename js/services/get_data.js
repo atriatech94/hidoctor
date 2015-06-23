@@ -1,13 +1,13 @@
 angular.module('pooshak')
-.factory('Rent', function($http){
+.factory('Category', function($http){
 return {
         all : function(){
-            return $http.get("http://app.shoooma.com?callback1=rtyyttg46687hd")
+            return $http.get("http://hidoctor.ir/app/category.php")
         }
         
     }   
-})
-.factory('Sale', function($http){
+});
+/*.factory('Sale', function($http){
     return {
         all : function(){
             return $http.get("http://app.shoooma.com?callback2=sdfsdfds432343")
@@ -26,5 +26,5 @@ return {
  
 })
 
-
+*/
   
