@@ -70,7 +70,7 @@ angular.module('pooshak')
                      
                     function devices(platform,version){
                        
-					   if(/*vers == 0*/1)
+					   if(vers == 0)
 						  {
                                
 									version = version.split('.');
