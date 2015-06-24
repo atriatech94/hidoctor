@@ -4,7 +4,7 @@ angular.module('pooshak')
             templateUrl: '/pages/home/index.html',
             controller: 'IndexController',
         })
-        .when('/post', {
+        .when('/post/:cat', {
             templateUrl: 'pages/posts/index-2.html',
             controller: 'PostController',
         })

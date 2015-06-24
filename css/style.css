@@ -117,7 +117,7 @@ body{
     height: 100%;
     position: fixed;
     top:0px;
-    background-color: rgba(0, 0, 0, 0.73);
+    background-color: rgba(0, 0, 0, 1);
     z-index: 11;
     display: none;
     
@@ -434,14 +434,16 @@ body{
     -o-border-radius: 0px;
     position: relative;
     margin: 1% 1% !important; 
-    -webkit-transform: rotate(-2deg);
+    /*-webkit-transform: rotate(-2deg);
     -webkit-transition: -webkit-transform .15s linear;
     -moz-transform: rotate(-2deg);
+    */
     z-index: 3;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     border-bottom:1px solid #cbcbcb;
+    display:inline-block;
     
 }
 .product_one:nth-child(odd):before, .product_one:nth-child(odd):after
@@ -497,14 +499,16 @@ body{
     left: auto;
 }
 .product_one:nth-child(odd){
-   -webkit-transform: rotate(2deg);
+   /*-webkit-transform: rotate(2deg);
     -moz-transform: rotate(2deg);
     transform: rotate(2deg);
+    */
 }
 .product_one:nth-child(even){
-    -webkit-transform: rotate(-2deg);
+    /*-webkit-transform: rotate(-2deg);
     -moz-transform: rotate(-2deg);
     -transform: rotate(-2deg);
+    */
 }
 
 .product_one img{
@@ -558,7 +562,7 @@ body{
 /*=======================  categories  ==============================*/
 .categories{
     position: relative!important;
-    height:  100vh !important;
+    height: 100%;
     overflow: scroll !important;
 }
 .module div{
@@ -584,7 +588,6 @@ body{
     background: -ms-linear-gradient(top,  rgba(0,0,0,0) 11%,rgba(0,0,0,0) 13%,rgba(0,0,0,0) 14%,rgba(0,0,0,0.8) 82%,rgba(0,0,0,0.8) 97%); /* IE10+ */
     background: linear-gradient(to bottom,  rgba(0,0,0,0) 11%,rgba(0,0,0,0) 13%,rgba(0,0,0,0) 14%,rgba(0,0,0,0.8) 82%,rgba(0,0,0,0.8) 97%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#cc000000',GradientType=0 ); /* IE6-9 */
-
 }
 .module p{
     position: absolute;
@@ -657,7 +660,7 @@ body{
     padding: 20px 0;
     display: block;
 }
-.conatin p{
+.conatin{
     font-size: 14px;
     text-align: justify;
     direction: rtl;
@@ -666,20 +669,22 @@ body{
     color:#464444;
     line-height: 26px;
 }
-.conatin h3{
-    width: 90%;
+.conatin strong{
+    width: 100%;
     text-align: right;
     margin: 20px auto;
     color:#20466a;
-    font-size: 16px;
+    font-size: 18px;
+    display: block;
 }
-.conatin .img img{
+.conatin img{
     max-width: 90%;
     width: auto;
     height: auto;
     margin: 20px auto;
     display: block;
 }
+.conatin p:first-child a{display: none;}
 .conatin .time{
     text-align: right;
     margin: 20px 0;
@@ -784,13 +789,12 @@ body{
 
 @media only screen and (min-width :401px) and (max-width :480px)  {
     .gap{
-        height:70px;
+        height:60px;
     }
     
      .product_one{
-         width: 43%;
-          margin: 5% 2% !important;
-         float: right !important;
+         width: 44%;
+          margin: 0% 2% 5% !important;
      }
       .product_one .detail .product_cust , .product_one .detail .product_time{
         font-size: 10px;
@@ -807,14 +811,12 @@ body{
 }
 @media only screen and (max-width :400px) {
     .gap{
-        height:70px;
+        height:60px;
     }
     
      .product_one{
-         width: 95%;
-         margin:0 auto 10% !important;
-         float: none !important;
-           left:2.5% !important;
+         width: 44%;
+          margin: 0% 2% 5% !important;
      }
       .product_one .detail .product_cust , .product_one .detail .product_time{
         font-size: 10px;
@@ -834,7 +836,7 @@ body{
 
 @media only screen and (max-height :500px) and (orientation: landscape) {
        .gap{
-        height:70px;
+        height:60px;
    }
     
 /*--=============--   --===================--*/
@@ -842,7 +844,7 @@ body{
 
 @media only screen and (min-height : 501px) and (max-height :768px) and (orientation: landscape) {
        .gap{
-        height:70px;
+        height:60px;
    }
     
 /*--=============--   --===================--*/
