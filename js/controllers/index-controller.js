@@ -15,13 +15,13 @@ angular.module('pooshak')
              /*===============================================================================*/ 
                     $('.module').click(function(){
                         localStorage.setItem("name",$(this).children('p').text());
+						localStorage.setItem("cat_id",$(this).attr('id').replace('p',''));
                         window.location.hash = '#/post/'+$(this).attr('id').replace('p','');
                         
                     });
-                    
-            /*===============================================================================      
+                
                   setTimeout(function(){$('.categories').attr('style',' ');},100);
-             ===============================================================================
+         
                     for(i=0 ; i< $('.module').length ;i++)
                     {
                             $('.module:eq('+i+')').addClass('active');
@@ -70,8 +70,7 @@ angular.module('pooshak')
                      
                     function devices(platform,version){
                        
-					   if(vers == 0)
-						  {
+					
                                
 									version = version.split('.');
 									version = parseInt(version[0]+ version[1]);
@@ -117,11 +116,10 @@ angular.module('pooshak')
 												isFitWidth: false,
 											});
 											
-										},300);
+										},100);
 									 
 									}// end esle android 4.2
-									vers++;
-							}// end if versin 
+							 
                     }// end devices(platform,version)
                     
              /*===============================================================================*/          
