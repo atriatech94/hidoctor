@@ -1,4 +1,4 @@
-is_open = 0 ;
+
 angular.module('pooshak')
 .controller('PostController', function($scope,$rootScope) {
 
@@ -7,7 +7,7 @@ angular.module('pooshak')
 .directive('swSwipe', ['$routeParams' ,  function ($routeParams,$scope){
 		return {
 			link: function($scope) {
-				
+            is_open = 0 ;
             $('.header_text').text(localStorage.getItem("name"));
 			
 			$('a[class=mu]').click(function(){
@@ -16,15 +16,28 @@ angular.module('pooshak')
 				localStorage.setItem("name",$(this).text());
 				localStorage.setItem("cat_id",cat_id);
 				
-			});
+            });
           /*=======================================varibales=============================================================*/    
-          var post_data =[] ; 
+                var post_data =[] ; 
           /*============================================================================================================*/                
-                        var snapper = new Snap({
-                            element: document.getElementById('content'),
-                            disable: 'left'
-                        });
-           /*=============================================================================================================*/        
+                var snapper = new Snap({
+                    element: document.getElementById('content'),
+                    disable: 'left'
+                });
+           /*=============================================================================================================*/     
+               
+                $('.menu').click(function(){
+                    if(is_open==0){
+                        snapper.open('right');
+                        is_open=1;
+                    }
+                    else{
+                        snapper.close('right');
+                         is_open=0;
+                    }
+                });
+               
+                    
            /*=============================================================================================================*/        
            /*=============================================================================================================*/        
 
@@ -50,7 +63,6 @@ angular.module('pooshak')
                     var hei = $(window).height() -50 ;
                     var data  = '<div class="post_detail">';/*==== start post detail  =====*/
                     data = '<div class="controll_btn"><span class="fav_btn"></span><span class="back_btn"></span></div>';
-                    data += '<div class="img_tt"><img class="post_image"  src="'+arr[0].thumbnail+'" ><div class="title"><span>'+arr[0].post_title+' </span></div></div>';/*==== post_image + title  =====*/
                     data += '<div class="conatin">'+arr[0].post_content.replace(/(?:\n|\n)/g, '<br />')+'';/*====  post text =====*/
                     data += '<div id="style"><style>.fancybox-inner{height : '+hei+'px !important}</style></div><div class="time">تاریخ انتشار :  '+moment((arr[0].post_date).valueOf()).format(' jD  jMMMM jYYYY ')+'<div>';/*==== post date  =====*/
                     data += '</div>';/*====  End post detail =====*/
@@ -72,7 +84,7 @@ angular.module('pooshak')
                                         }
                                     }
                                    );
-                    
+                    snapper.disable();
                     return false;
                 });
              /*======================================back_btn=========================================*/          
@@ -83,35 +95,45 @@ angular.module('pooshak')
                             $('.menu').show();
                             $('.buys .tags img').attr('src','img/icon_left_w.png');
 							$('.header_text').text(localStorage.getItem("name"));
-                             return false;
+                            snapper.enable();
+                            return false;
+                            
                         }
                        
                     });
+                
+             /*======================================a disable detail=========================================*/     
+                $('body').delegate("a",'click',function(){
+                    var href = $(this).attr("href");
+                    
+                    if( href.indexOf('http') >= 0)
+                    {
+                       return false;
+                    }
+                    
+                });
              /*======================================reuqest=========================================*/          
                 var offset = 0 ; 
+				var scr = 0;
                 var cat = localStorage.getItem("cat_id") ;
                  FetchDataFromServer(offset);
                         // http://hidoctor.ir/app/post.php?offset=1&limit=12&cat_id=402&pass=hamidhidoctor9423
         
                 
                         $('.content').scroll(function () {
-                            
-                          // console.log(" $('.content').scrollTop() = "+$('.content').scrollTop());
-                          // console.log(" $('.content').height() "+$('.content').height());
-                          // console.log(" $(document).height() "+$('.product').height());
-                            
-                            
                             if ( $('.product').height() < $('.content').scrollTop() + ($(window).height()) ) {
-                                FetchDataFromServer(offset);
+								if(scr == 0)
+								{
+                                    
+                                   FetchDataFromServer(offset);
+								}
                             }
-                            
                         });
-                  
-                        
-                    
              /*======================================fancy=========================================*/          
                     function FetchDataFromServer(ofs){
-                       $.getJSON("http://hidoctor.ir/app/post.php?offset="+ofs+"&limit=12&cat_id="+$routeParams.cat+"&pass=hamidhidoctor9423",function(data){
+						scr = 1;
+                        $('.loading_two').show();
+                       $.getJSON("http://hidoctor.ir/app/post.php?offset="+ofs+"&limit=15&cat_id="+$routeParams.cat+"&pass=hamidhidoctor9423",function(data){
                            
                            for(i=0;i< data.length;i++)
                            {
@@ -137,7 +159,10 @@ angular.module('pooshak')
 							   }
 
                            }
+                               $('.loading_two').hide();
+                           
                                console.log(data);
+							   scr = 0;
                                							   
                                $('.product').masonry( 'reloadItems');
                                $('.product').masonry('layout');
