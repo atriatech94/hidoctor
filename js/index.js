@@ -31,18 +31,14 @@ function amintest(){
 		$.fancybox.close();
 		return false;
 	}
-    if(loc == "home" || loc == "")
+    if(loc == "home" || loc == "" || loc == "android-up" || loc == "android-down")
     {
-                                           
-       var r = confirm("آیا برای خروج اطمینان دارید ؟");
-        if (r == true) {
-        navigator.app.exitApp(); 
-       }
+       navigator.app.exitApp(); 
+       
     }                         
     else
     {
-	   								
-         window.location.hash = "#/";
+	    window.location.hash = "#/";
     }
     return false;
 }
