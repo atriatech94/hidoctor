@@ -155,7 +155,7 @@ angular.module('pooshak')
                                  $content +='</div></div>';
                                  $('.product').append( $content );
 								 post_data.push(data[i]);
-                                 if(i == 0 && offset < 12 ){mns()}
+                                 if(i == 0 && offset < 15 ){mns()}
 							   }
 
                            }
@@ -182,7 +182,7 @@ angular.module('pooshak')
 							   setTimeout(function(){ $('.product').masonry( 'reloadItems');
 							   $('.product').masonry('layout');},5000);
                             
-                               offset+=12;
+                               offset+=15;
                            
                         });
                        
