@@ -7,7 +7,7 @@ angular.module('pooshak')
 .directive('indexDirtwo' , function (Category){
 		return {
 			link: function($rootScope) {
-                document.getElementById('swipe_color').style.display = "block";
+                document.getElementById('swipe_color').style.display = "none";
      
                 $(document).ready(function () {
                   
@@ -48,8 +48,6 @@ angular.module('pooshak')
                         });
                     },200);
                     */
-                   
-                    
                     $('.categories').append('<style>.categories{height : '+$(window).height()+'px !important}</style>');
                     document.getElementById('swipe_color').style.display = "none";
              /*===============================================================================*/ 

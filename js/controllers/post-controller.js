@@ -27,14 +27,8 @@ angular.module('pooshak')
            /*=============================================================================================================*/     
                
                 $('.menu').click(function(){
-                    if(is_open==0){
+					
                         snapper.open('right');
-                        is_open=1;
-                    }
-                    else{
-                        snapper.close('right');
-                         is_open=0;
-                    }
                 });
                
                     
@@ -44,7 +38,7 @@ angular.module('pooshak')
                  
              /*======================================fancy=========================================*/  
                 $(window).on('resize',function(){
-                    var hei = $(window).height() -50 ;
+                    var hei = $(window).height() - 70 ;
                     $('#style').html('<style>.fancybox-inner{height : '+hei+'px !important}</style>');
                 });
              /*======================================fancy=========================================*/  
@@ -60,7 +54,7 @@ angular.module('pooshak')
                     $('.menu').hide();
                     $('.header_text').text(arr[0].post_title);
                     $('.buys .tags img').attr('src','img/close-btn.png');
-                    var hei = $(window).height() -50 ;
+                    var hei = $(window).height() - 70 ;
                     var data  = '<div class="post_detail">';/*==== start post detail  =====*/
                     data = '<div class="controll_btn"><span class="fav_btn"></span><span class="back_btn"></span></div>';
                     data += '<div class="conatin">'+arr[0].post_content.replace(/(?:\n|\n)/g, '<br />')+'';/*====  post text =====*/
@@ -117,14 +111,12 @@ angular.module('pooshak')
 				var scr = 0;
                 var cat = localStorage.getItem("cat_id") ;
                  FetchDataFromServer(offset);
-                        // http://hidoctor.ir/app/post.php?offset=1&limit=12&cat_id=402&pass=hamidhidoctor9423
-        
-                
+
                         $('.content').scroll(function () {
-                            if ( $('.product').height() < $('.content').scrollTop() + ($(window).height()) ) {
+                            if ( $('.product').height() < $('.content').scrollTop() + ($(window).height())+((0.7)*($(window).height())) ) {
 								if(scr == 0)
 								{
-                                    
+      
                                    FetchDataFromServer(offset);
 								}
                             }
@@ -184,7 +176,10 @@ angular.module('pooshak')
                             
                                offset+=15;
                            
-                        });
+                        }).fail(function() {
+                               $.fancybox.open("<p class='alerts'> لطفا اینترنت گوشی خود را فعال کنید </p><span class='ref_btn'><button class='refresh'>تلاش مجدد</button><button class='exit'>بازگشت</button></span>",{modal:true, height: 50,width:100 ,padding : 0});
+                          });
+                       
                        
                     }
              /*======================================fancy=========================================*/      
@@ -197,10 +192,26 @@ angular.module('pooshak')
                          isOriginLeft: true,
                          transitionDuration: '0s',
                          isFitWidth: false,
-                     });  
+                     });
                  }
                 
            /*======================================fancy=========================================*/  
+           /*======================end  click interneti link ===================================*/
+                $('body').delegate(".refresh","click",function(){
+                    $.fancybox.close();
+                    FetchDataFromServer(offset);
+                }); 
+                $('body').delegate(".exit","click",function(){
+                    $.fancybox.close();
+                    $('.loading_two').hide();
+                    $('.refresh_ico').show();
+                            
+                });
+                $('body').delegate(".refresh_ico","click",function(){
+                    $('.refresh_ico').hide();
+                    FetchDataFromServer(offset);
+                }); 
+           /*======================chech dobare net===================================*/
             }
 }}])
 

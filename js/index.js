@@ -33,6 +33,7 @@ function amintest(){
 	}
     if(loc == "home" || loc == "" || loc == "android-up" || loc == "android-down")
     {
+	   localStorage.removeItem("version")
        navigator.app.exitApp(); 
        
     }                         
