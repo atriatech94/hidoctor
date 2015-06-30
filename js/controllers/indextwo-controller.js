@@ -48,6 +48,9 @@ angular.module('pooshak')
                         });
                     },200);
                     */
+					$(window).on("resize",function(){
+						$('.categories').append('<style>.categories{height : '+$(window).height()+'px !important}</style>');
+					});
                     $('.categories').append('<style>.categories{height : '+$(window).height()+'px !important}</style>');
                     document.getElementById('swipe_color').style.display = "none";
              /*===============================================================================*/ 

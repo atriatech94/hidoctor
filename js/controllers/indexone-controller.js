@@ -11,12 +11,7 @@ angular.module('pooshak')
      
                 $(document).ready(function () {
                   
-                    var link = document.createElement('link');
-                    link.setAttribute('rel', 'stylesheet');
-                    link.setAttribute('type', 'text/css');
-                    link.setAttribute('href', 'css/no-module.css');
-                    document.getElementsByTagName('head')[0].appendChild(link);
-                    $('.categories').height($(window).height());
+                  
                     /*===============================================================================*/ 
                     $('.module').click(function(){
                         localStorage.setItem("name",$(this).children('p').text());
@@ -32,7 +27,10 @@ angular.module('pooshak')
                             $('.module:eq('+i+')').addClass('active');
                     }
                     /*===============================================================================*/ 
-                    
+                    $(window).on("resize",function(){
+						$('.categories').append('<style>.categories{height : '+$(window).height()+'px !important}</style>');
+					});
+					$('.categories').append('<style>.categories{height : '+$(window).height()+'px !important}</style>');
                 });	
             }
 }})
