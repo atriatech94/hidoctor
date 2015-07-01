@@ -173,6 +173,12 @@ angular.module('pooshak')
 							   
 							   setTimeout(function(){ $('.product').masonry( 'reloadItems');
 							   $('.product').masonry('layout');},5000);
+							   
+							   setTimeout(function(){ $('.product').masonry( 'reloadItems');
+							   $('.product').masonry('layout');},8000);
+							   
+							   setTimeout(function(){ $('.product').masonry( 'reloadItems');
+							   $('.product').masonry('layout');},11000);
                             
                                offset+=15;
                            
