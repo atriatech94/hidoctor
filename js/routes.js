@@ -1,7 +1,7 @@
 angular.module('pooshak')
     .config(function($routeProvider) {
         $routeProvider.when('/home', {
-            templateUrl: '/pages/home/index-44.html',
+            templateUrl: 'pages/home/index-44.html',
             controller: 'IndextwoController',
         })
         .when('/post/:cat', {
@@ -10,7 +10,7 @@ angular.module('pooshak')
         })
      
 		.when('/', {
-            templateUrl: '/pages/home/index-44.html',
+            templateUrl: 'pages/home/index-44.html',
             controller: 'IndextwoController',
 		})
 		.otherwise({ redirectTo: '/' });
