@@ -748,6 +748,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#003e91b2', e
     width: 100%;
     height: 50px;
     display: none;
+	position:relative;
+	z-index:23;
 }
 /*--=============--   --===================--*/
 #f1_container {
