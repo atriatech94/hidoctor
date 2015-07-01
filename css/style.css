@@ -14,12 +14,13 @@ html {
 }
 body {
 	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	-webkit-overflow-scrolling: touch;
 	/*-ms-touch-action: pan-y;
 	touch-action: pan-y;
 	-ms-content-zooming: none;
 	font-family: 'yekan', tahoma;
     direction: ltr !important;*/
-    -webkit-backface-visibility: hidden
+    -webkit-backface-visibility: hidden;
 }
 /* css reset start */
 html, body, div, span, applet, object, iframe, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, label, legend, p, blockquote, table, caption, tbody, tfoot, thead, tr, th, td {

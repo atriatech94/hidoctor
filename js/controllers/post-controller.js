@@ -209,6 +209,7 @@ angular.module('pooshak')
                 $('body').delegate(".refresh","click",function(){
                     $.fancybox.close();
                     FetchDataFromServer(offset);
+					
                 }); 
                 $('body').delegate(".exit","click",function(){
                     $.fancybox.close();

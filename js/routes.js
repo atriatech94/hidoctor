@@ -1,8 +1,8 @@
 angular.module('pooshak')
     .config(function($routeProvider) {
         $routeProvider.when('/home', {
-            templateUrl: '/pages/home/index.html',
-            controller: 'IndexController',
+            templateUrl: '/pages/home/index-44.html',
+            controller: 'IndextwoController',
         })
         .when('/post/:cat', {
             templateUrl: 'pages/posts/index-2.html',
@@ -10,16 +10,8 @@ angular.module('pooshak')
         })
      
 		.when('/', {
-            templateUrl: 'pages/home/index.html',
-            controller: 'IndexController',
-		})
-        .when('/android-down', {
-            templateUrl: 'pages/home/index-42.html',
-            controller: 'IndexoneController',
-		})
-        .when('/android-up', {
-            templateUrl: 'pages/home/index-44.html',
-             controller: 'IndextwoController',
+            templateUrl: '/pages/home/index-44.html',
+            controller: 'IndextwoController',
 		})
 		.otherwise({ redirectTo: '/' });
 });
