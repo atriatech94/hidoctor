@@ -7,12 +7,6 @@ angular.module('pooshak')
 .directive('indexDirtwo' , function (Category){
 		return {
 			link: function($rootScope) {
-				
-				
-				window.addEventListener('load', function() {
-					new FastClick(document.body);
-				}, false);
-				
                 document.getElementById('swipe_color').style.display = "none";
      
                 $(document).ready(function () {
@@ -43,8 +37,18 @@ angular.module('pooshak')
                                 transitionDuration: '.5s',
                                 isFitWidth: false,
                         });
-                 
-                   $(window).on("resize",function(){
+                   /* setTimeout(function(){
+                        $('.categories').masonry({
+                                itemSelector: '.module',
+                                percentPosition: true,
+                                columnWidth: '.grid-sizer',
+                                isOriginLeft: true,
+                                transitionDuration: '.5s',
+                                isFitWidth: false,
+                        });
+                    },200);
+                    */
+					$(window).on("resize",function(){
 						$('.categories').append('<style>.categories{height : '+$(window).height()+'px !important}</style>');
 					});
                     $('.categories').append('<style>.categories{height : '+$(window).height()+'px !important}</style>');
@@ -53,4 +57,4 @@ angular.module('pooshak')
 
                 });	
             }
-}});
+}})
