@@ -14,7 +14,6 @@ html {
 }
 body {
 	-webkit-tap-highlight-color:rgba(0,0,0,0);
-	-webkit-overflow-scrolling: touch;
 	/*-ms-touch-action: pan-y;
 	touch-action: pan-y;
 	-ms-content-zooming: none;
@@ -346,10 +345,12 @@ body{
     position: absolute;
     width: 100%;
     margin: 0 auto;
-    overflow-y: auto;
     direction: rtl;
     height: 100%;
     top:0;
+	overflow: hidden;
+   overflow-y: scroll !important;
+  -webkit-overflow-scrolling: touch !important;
     
 }
 .content2 {
